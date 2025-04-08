@@ -1,4 +1,4 @@
-import type { AppRouter } from "backend/src/trpc/router";
+import type { AppRouter } from "backend";
 
 import { createTRPCClient, httpBatchLink, loggerLink } from "@trpc/client";
 import { type inferRouterInputs, type inferRouterOutputs } from "@trpc/server";
