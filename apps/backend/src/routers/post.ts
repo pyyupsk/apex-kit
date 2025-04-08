@@ -1,5 +1,6 @@
-import { apex, publicProcedure } from "@/trpc";
 import { z } from "zod";
+
+import { apex, publicProcedure } from "../trpc";
 
 const postSchema = z.object({
   authorId: z.string(),

@@ -1,5 +1,5 @@
-import { postRouter } from "@/routers/post";
-import { apex } from "@/trpc";
+import { postRouter } from "../routers/post";
+import { apex } from "../trpc";
 
 export const appRouter = apex({
   post: postRouter,

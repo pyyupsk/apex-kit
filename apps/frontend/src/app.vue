@@ -14,7 +14,7 @@ const {
   queryKey: ["posts"],
 });
 
-function formatDate(date: string): string {
+function formatDate(date: Date): string {
   return new Date(date).toLocaleDateString();
 }
 </script>

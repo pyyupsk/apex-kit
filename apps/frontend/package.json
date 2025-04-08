@@ -1,6 +1,5 @@
 {
   "name": "frontend",
-  "version": "0.0.0",
   "type": "module",
   "private": true,
   "scripts": {
@@ -12,10 +11,10 @@
     "typecheck": "vue-tsc -b --noEmit"
   },
   "dependencies": {
+    "@apps/backend": "workspace:*",
     "@tanstack/vue-query": "^5.72.0",
     "@trpc/client": "^11.0.3",
     "@trpc/server": "^11.0.3",
-    "backend": "workspace:*",
     "superjson": "^2.2.2",
     "vue": "^3.5.13"
   },

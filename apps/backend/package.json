@@ -1,8 +1,8 @@
 {
-  "name": "backend",
-  "main": "src/index.ts",
+  "name": "@apps/backend",
+  "type": "module",
+  "private": true,
   "scripts": {
-    "deploy": "wrangler deploy --minify",
     "dev": "wrangler dev",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
