@@ -2,13 +2,7 @@ import { initTRPC } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
-export const createTRPCContext = async (opts: { headers: Headers }) => {
-  return {
-    ...opts,
-  };
-};
-
-const trpc = initTRPC.context<typeof createTRPCContext>().create({
+const trpc = initTRPC.context().create({
   errorFormatter({ error, shape }) {
     return {
       ...shape,
