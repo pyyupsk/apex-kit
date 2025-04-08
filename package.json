@@ -10,6 +10,7 @@
     "dev": "turbo run dev",
     "format": "prettier --write \"**/*.{js,ts,mjs,vue,md}\"",
     "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
