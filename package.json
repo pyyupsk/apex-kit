@@ -8,7 +8,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "format": "prettier --write \"**/*.{js,ts,mjs,vue,md}\"",
+    "format": "prettier --write \"**/*.{js,ts,mjs,vue,md}\" --list-different --cache",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "typecheck": "turbo run typecheck"
