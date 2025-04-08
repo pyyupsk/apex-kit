@@ -47,7 +47,6 @@ export default tseslint.config(
           ignoreRestSiblings: true,
         },
       ],
-      "no-console": ["warn", { allow: ["warn", "error"] }],
       "no-unused-vars": [
         "warn",
         {

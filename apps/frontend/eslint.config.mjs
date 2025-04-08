@@ -16,6 +16,7 @@ const eslintConfig = tseslint.config(
       },
     },
     rules: {
+      "no-console": ["warn", { allow: ["warn", "error"] }],
       "vue/multi-word-component-names": "off",
     },
   },
