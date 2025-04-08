@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "scripts": {
+    "deploy": "wrangler deploy --minify",
+    "dev": "wrangler dev",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.7.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250214.0",
+    "@packages/eslint-config": "workspace:*",
+    "@packages/typescript-config": "workspace:*",
+    "wrangler": "^4.4.0"
+  }
+}
