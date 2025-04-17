@@ -32,6 +32,8 @@ The goal of Apex Kit is to provide a starting point that doesn't compromise. It 
 3.  **Maintainability:** Through clear structure and robust tooling.
 4.  **Cost-Effectiveness:** By choosing infrastructure with excellent scaling and pricing.
 
+[Why I Built This Stack: A Freelancer's Journey](https://fasu.dev/blog/5bd4cab2-17dd-43aa-b8ae-166269686320)
+
 ## 🛠️ Tech Stack
 
 - **Monorepo Tooling:** [**Turborepo**](https://turbo.build/)
