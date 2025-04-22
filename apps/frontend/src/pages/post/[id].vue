@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { trpc } from "@/api/trpc";
+import { formatDate } from "@/utils/format-date";
 import { useQuery } from "@tanstack/vue-query";
 import { useRoute } from "vue-router";
 
@@ -13,16 +14,12 @@ const {
 } = useQuery({
   queryFn: async () => {
     const result = await trpc.post.getPostById.query({
-      id: postId,
+      id: Number(postId),
     });
     return result;
   },
   queryKey: ["post", postId],
 });
-
-function formatDate(date: Date): string {
-  return new Date(date).toLocaleDateString();
-}
 </script>
 
 <template>

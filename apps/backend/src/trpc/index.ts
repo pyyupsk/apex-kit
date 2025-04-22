@@ -1,8 +1,14 @@
 import { initTRPC } from "@trpc/server";
+import { drizzle } from "drizzle-orm/d1";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
-const trpc = initTRPC.context().create({
+import type { AppEnv } from "../app";
+import type { TrpcContext } from "../types/trpc";
+
+import * as schema from "../db/schema";
+
+const trpc = initTRPC.context<TrpcContext<AppEnv>>().create({
   errorFormatter({ error, shape }) {
     return {
       ...shape,
@@ -31,5 +37,16 @@ const timingMiddleware = trpc.middleware(async ({ next, path }) => {
   return result;
 });
 
+export const databaseMiddleware = trpc.middleware(async ({ ctx, next }) => {
+  const db = drizzle(ctx.env.APEX_KIT_DB, { schema });
+
+  return await next({
+    ctx: {
+      ...ctx,
+      db,
+    },
+  });
+});
+
 export const apex = trpc.router;
-export const publicProcedure = trpc.procedure.use(timingMiddleware);
+export const publicProcedure = trpc.procedure.use(timingMiddleware).use(databaseMiddleware);
