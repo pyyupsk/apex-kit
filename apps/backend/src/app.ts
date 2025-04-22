@@ -1,3 +1,5 @@
+import type { D1Database } from "@cloudflare/workers-types";
+
 import { trpcServer } from "@hono/trpc-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
