@@ -1,5 +1,3 @@
-import type { D1Database } from "@cloudflare/workers-types";
-
 import { trpcServer } from "@hono/trpc-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
@@ -8,7 +6,7 @@ import { appRouter } from "./trpc/router";
 
 export type AppEnv = {
   Bindings: {
-    APEX_KIT_DB: D1Database;
+    DATABASE_URL: string;
   };
 };
 

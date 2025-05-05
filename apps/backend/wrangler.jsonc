@@ -21,13 +21,13 @@
   //     "bucket_name": "my-bucket"
   //   }
   // ],
-  "d1_databases": [
-    {
-      "binding": "APEX_KIT_DB",
-      "database_name": "your-database-name",
-      "database_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    }
-  ],
+  // "d1_databases": [
+  //   {
+  //     "binding": "DB",
+  //     "database_name": "your-database-name",
+  //     "database_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  //   }
+  // ],
   // "ai": {
   //   "binding": "AI"
   // },

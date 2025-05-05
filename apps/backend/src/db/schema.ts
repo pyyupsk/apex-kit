@@ -1,14 +1,11 @@
-import { sql } from "drizzle-orm";
-import { int, integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { boolean, pgTable, serial, timestamp, varchar } from "drizzle-orm/pg-core";
 
-export const posts = sqliteTable("posts", {
-  content: text("content").notNull(),
-  createdAt: text("created_at")
-    .default(sql`(CURRENT_TIMESTAMP)`)
-    .notNull(),
-  id: int("id").primaryKey({ autoIncrement: true }),
-  published: integer("published", { mode: "boolean" }).default(false).notNull(),
-  title: text("title", { length: 255 }).notNull(),
+export const posts = pgTable("posts", {
+  content: varchar("content").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  id: serial("id").primaryKey(),
+  published: boolean("published").default(false).notNull(),
+  title: varchar("title", { length: 255 }).notNull(),
 });
 
 export type NewPost = typeof posts.$inferInsert;

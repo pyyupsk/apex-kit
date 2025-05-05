@@ -3,8 +3,12 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
     "deploy": "wrangler deploy",
-    "dev": "wrangler dev --remote",
+    "dev": "wrangler dev",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "typecheck": "tsc --noEmit"
@@ -12,6 +16,7 @@
   "dependencies": {
     "@dotenvx/dotenvx": "^1.43.0",
     "@hono/trpc-server": "^0.3.4",
+    "@neondatabase/serverless": "^1.0.0",
     "@trpc/server": "^11.1.2",
     "drizzle-orm": "^0.42.0",
     "hono": "^4.7.8",

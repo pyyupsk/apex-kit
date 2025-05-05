@@ -96,6 +96,18 @@ apex-kit/
     ```
     _(pnpm installs dependencies for all workspaces, Turborepo will manage running tasks across them)_
 
+**Backend Setup:**
+
+- **Create a `.env` and `.dev.vars` file with development environment variables:**
+
+  - `.env`: Environment variables for `drizzle-kit`.
+  - `.dev.vars`: Environment variables for `wrangler`.
+
+  ```bash
+  touch .env
+  touch .dev.vars
+  ```
+
 **Running Development Servers:**
 
 - **Start development servers using Turborepo:**
