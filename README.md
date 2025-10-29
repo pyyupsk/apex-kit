@@ -27,17 +27,17 @@ Apex Kit provides a meticulously configured foundation for building modern web a
 
 The goal of Apex Kit is to provide a starting point that doesn't compromise. It aims for the **apex** by combining:
 
-1.  **Performance:** Utilizing edge computing, modern frameworks, and **Turborepo's build optimization**.
-2.  **Developer Experience:** Ensuring development is fast, intuitive, type-safe, and efficient via **Turborepo's caching and pipeline**.
-3.  **Maintainability:** Through clear structure and robust tooling.
-4.  **Cost-Effectiveness:** By choosing infrastructure with excellent scaling and pricing.
+1. **Performance:** Utilizing edge computing, modern frameworks, and **Turborepo's build optimization**.
+2. **Developer Experience:** Ensuring development is fast, intuitive, type-safe, and efficient via **Turborepo's caching and pipeline**.
+3. **Maintainability:** Through clear structure and robust tooling.
+4. **Cost-Effectiveness:** By choosing infrastructure with excellent scaling and pricing.
 
 [Why I Built This Stack: A Freelancer's Journey](https://fasu.dev/blog/5bd4cab2-17dd-43aa-b8ae-166269686320)
 
 ## 🛠️ Tech Stack
 
 - **Monorepo Tooling:** [**Turborepo**](https://turbo.build/)
-- **Package Manager:** [pnpm](https://pnpm.io/) (used with Turborepo)
+- **Package Manager:** [bun](https://bun.sh/) (used with Turborepo)
 - **Frontend:** [Vue 3](https://vuejs.org/) with [Vite](https://vitejs.dev/)
 - **Backend:** [Hono](https://hono.dev/) running on [Cloudflare Workers](https://workers.cloudflare.com/)
 - **API Layer:** [tRPC](https://trpc.io/) for type-safe RPC
@@ -68,9 +68,7 @@ apex-kit/
 │   ├── eslint-config/          # Shared ESLint configurations
 │   └── typescript-config/      # Shared TypeScript configurations
 ├── package.json
-├── pnpm-lock.yaml
-├── pnpm-workspace.yaml        # Workspace configuration
-└── turbo.json                 # Turborepo configuration
+└── turbo.json                  # Turborepo configuration
 ```
 
 ## 🚀 Getting Started
@@ -78,23 +76,25 @@ apex-kit/
 **Prerequisites:**
 
 - Node.js (LTS recommended, check `.nvmrc` if present)
-- [pnpm](https://pnpm.io/) (v10+ recommended)
+- [bun](https://bun.sh/) (v1.3+ recommended)
 - [Cloudflare Account](https://dash.cloudflare.com/sign-up) & [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/install-and-update/) (for deployment)
 
 **Installation:**
 
-1.  **Clone the repository:**
+1. **Clone the repository:**
 
-    ```bash
-    git clone git@github.com:pyyupsk/apex-kit.git
-    cd apex-kit
-    ```
+   ```bash
+   git clone git@github.com:pyyupsk/apex-kit.git
+   cd apex-kit
+   ```
 
-2.  **Install dependencies:**
-    ```bash
-    pnpm install
-    ```
-    _(pnpm installs dependencies for all workspaces, Turborepo will manage running tasks across them)_
+2. **Install dependencies:**
+
+   ```bash
+   bun install
+   ```
+
+   _(bun installs dependencies for all workspaces, Turborepo will manage running tasks across them)_
 
 **Backend Setup:**
 
@@ -112,7 +112,7 @@ apex-kit/
 - **Start development servers using Turborepo:**
 
   ```bash
-  pnpm run dev
+  bun run dev
   ```
 
   - This command will typically run the `dev` scripts within both `apps/backend` and `apps/frontend` concurrently, respecting dependencies defined in `turbo.json`.
@@ -135,15 +135,15 @@ apex-kit/
 
 The main difference with Turborepo is _how_ you run tasks across the monorepo.
 
-## 📜 Available Scripts (via pnpm)
+## 📜 Available Scripts (via bun)
 
-Turborepo acts as the task runner for the monorepo. You'll primarily use the `pnpm` command from the root directory. Common tasks are typically defined in the root `package.json` and orchestrated by the `turbo.json` pipeline configuration.
+Turborepo acts as the task runner for the monorepo. You'll primarily use the `bun` command from the root directory. Common tasks are typically defined in the root `package.json` and orchestrated by the `turbo.json` pipeline configuration.
 
-- **`pnpm build`**: Builds all applications and packages in the monorepo, respecting dependencies and leveraging caching. Builds only what has changed since the last run.
-- **`pnpm dev`**: Starts all development servers (e.g., frontend Vite server, backend Wrangler server).
-- **`pnpm lint`**: Runs linters across all relevant workspaces. Benefits from Turborepo caching.
-- **`pnpm lint:fix`**: Runs linting fixes across all relevant workspaces.
-- **`pnpm typecheck`**: Runs TypeScript checks across the monorepo.
+- **`bun run build`**: Builds all applications and packages in the monorepo, respecting dependencies and leveraging caching. Builds only what has changed since the last run.
+- **`bun run dev`**: Starts all development servers (e.g., frontend Vite server, backend Wrangler server).
+- **`bun run lint`**: Runs linters across all relevant workspaces. Benefits from Turborepo caching.
+- **`bun run lint:fix`**: Runs linting fixes across all relevant workspaces.
+- **`bun run typecheck`**: Runs TypeScript checks across the monorepo.
 
 **Running Tasks for Specific Workspaces:**
 
@@ -163,42 +163,42 @@ turbo build --filter=backend
 
 The deployment targets (Cloudflare Workers for the API, Vercel/Netlify/Cloudflare Pages for the web app) remain the same, but you'll use Turborepo to build the necessary artifacts.
 
-1.  **Configure Wrangler:** Edit `apps/backend/wrangler.jsonc` as described previously (account ID, worker name, bindings).
+1. **Configure Wrangler:** Edit `apps/backend/wrangler.jsonc` as described previously (account ID, worker name, bindings).
 
-2.  **Login to Wrangler:**
+2. **Login to Wrangler:**
 
-    ```bash
-    pnpm wrangler login
-    ```
+   ```bash
+   bun wrangler login
+   ```
 
-3.  **Build the API:**
+3. **Build the API:**
 
-    ```bash
-    turbo build --filter=backend
-    ```
+   ```bash
+   turbo build --filter=backend
+   ```
 
-    _(Ensure your `turbo.json` correctly defines the build task for `apps/backend`)_
+   _(Ensure your `turbo.json` correctly defines the build task for `apps/backend`)_
 
-4.  **Deploy the API:** Navigate to the API directory (or ensure your deploy script handles this) and deploy using Wrangler. A common pattern is to have a deploy script in `apps/backend/package.json` that Wrangler can run, or a root script.
+4. **Deploy the API:** Navigate to the API directory (or ensure your deploy script handles this) and deploy using Wrangler. A common pattern is to have a deploy script in `apps/backend/package.json` that Wrangler can run, or a root script.
 
-    ```bash
-    # Example: If you have a deploy script in apps/api/package.json:
-    turbo run deploy --filter=backend
+   ```bash
+   # Example: If you have a deploy script in apps/api/package.json:
+   turbo run deploy --filter=backend
 
-    # Or manually navigate and deploy:
-    # cd apps/backend
-    # pnpm wrangler deploy # or deploy script defined in apps/backend/package.json
-    ```
+   # Or manually navigate and deploy:
+   # cd apps/backend
+   # bun wrangler deploy # or deploy script defined in apps/backend/package.json
+   ```
 
-5.  **Build the Frontend:**
+5. **Build the Frontend:**
 
-    ```bash
-    turbo build --filter=frontend
-    ```
+   ```bash
+   turbo build --filter=frontend
+   ```
 
-6.  **Configure Frontend:** Set environment variables (like `VITE_API_URL` pointing to your deployed API) in your frontend hosting provider's settings.
+6. **Configure Frontend:** Set environment variables (like `VITE_API_URL` pointing to your deployed API) in your frontend hosting provider's settings.
 
-7.  **Deploy Frontend:** Deploy the static output of the `apps/frontend` build (usually `apps/frontend/dist`) to Vercel, Netlify, Cloudflare Pages, etc.
+7. **Deploy Frontend:** Deploy the static output of the `apps/frontend` build (usually `apps/frontend/dist`) to Vercel, Netlify, Cloudflare Pages, etc.
 
 ## 🙏 Contributing
 

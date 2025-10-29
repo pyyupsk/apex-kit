@@ -29,9 +29,9 @@ If you're unable to find an open issue addressing the problem, [open a new one](
 
 If you have an idea for an enhancement or a new feature:
 
-1.  Search the [Issues](https://github.com/pyyupsk/apex-kit/issues) and [Discussions](https://github.com/pyyupsk/apex-kit/discussions) to see if the idea has already been suggested.
-2.  If not, open a new issue or start a discussion.
-3.  Clearly describe the proposed enhancement, why it's needed (use cases), and potential implementation ideas.
+1. Search the [Issues](https://github.com/pyyupsk/apex-kit/issues) and [Discussions](https://github.com/pyyupsk/apex-kit/discussions) to see if the idea has already been suggested.
+2. If not, open a new issue or start a discussion.
+3. Clearly describe the proposed enhancement, why it's needed (use cases), and potential implementation ideas.
 
 ## Your First Code Contribution
 
@@ -39,32 +39,34 @@ Unsure where to begin? You can start by looking through issues tagged `good firs
 
 **Setting Up Your Development Environment:**
 
-Follow the instructions in the main [README.md](./README.md#🚀-getting-started) to clone the repository and install dependencies using `pnpm install`.
+Follow the instructions in the main [README.md](./README.md#🚀-getting-started) to clone the repository and install dependencies using `bun install`.
 
 ## Pull Request Process
 
 When you're ready to contribute code:
 
-1.  **Fork the repository:** Click the "Fork" button on the top right of the [Apex Kit repository page](https://github.com/pyyupsk/apex-kit).
-2.  **Clone your fork:** `git clone https://github.com/pyyupsk/apex-kit.git`
-3.  **Create a feature branch:** `git checkout -b feature/your-amazing-feature` (replace `your-amazing-feature` with a descriptive name).
-4.  **Make your changes:** Implement your fix or feature.
-5.  **Ensure code quality:**
-    - Run the linter: `pnpm lint`
-    - Run type checks: `pnpm typecheck`
-    - Make sure all checks pass before committing.
-6.  **Commit your changes:** Use clear and descriptive commit messages. Reference the issue number if your PR addresses a specific issue (e.g., `feat: add x feature (fixes #123)`).
-    ```bash
-    git add .
-    git commit -m "feat: describe your change clearly"
-    ```
-7.  **Push to your branch:** `git push origin feature/your-amazing-feature`
-8.  **Open a Pull Request:** Go to the original Apex Kit repository and click "New pull request". Compare your feature branch with the `main` branch of the original repository.
-9.  **Describe your PR:** Provide a clear title and description for your pull request, explaining the changes and linking any relevant issues (e.g., `closes #123`).
+1. **Fork the repository:** Click the "Fork" button on the top right of the [Apex Kit repository page](https://github.com/pyyupsk/apex-kit).
+2. **Clone your fork:** `git clone https://github.com/pyyupsk/apex-kit.git`
+3. **Create a feature branch:** `git checkout -b feature/your-amazing-feature` (replace `your-amazing-feature` with a descriptive name).
+4. **Make your changes:** Implement your fix or feature.
+5. **Ensure code quality:**
+   - Run the linter: `bun run lint`
+   - Run type checks: `bun run typecheck`
+   - Make sure all checks pass before committing.
+6. **Commit your changes:** Use clear and descriptive commit messages. Reference the issue number if your PR addresses a specific issue (e.g., `feat: add x feature (fixes #123)`).
+
+   ```bash
+   git add .
+   git commit -m "feat: describe your change clearly"
+   ```
+
+7. **Push to your branch:** `git push origin feature/your-amazing-feature`
+8. **Open a Pull Request:** Go to the original Apex Kit repository and click "New pull request". Compare your feature branch with the `main` branch of the original repository.
+9. **Describe your PR:** Provide a clear title and description for your pull request, explaining the changes and linking any relevant issues (e.g., `closes #123`).
 10. **Address feedback:** Respond to any code review comments or suggestions.
 
 ## Code Style
 
-This project uses Prettier and ESLint to enforce code style and quality. Configuration files are included in the repository. Please run `pnpm lint` and `pnpm format` before committing changes to ensure your code adheres to the project's style guidelines. Most editors can be configured to format code automatically on save using these tools.
+This project uses Prettier and ESLint to enforce code style and quality. Configuration files are included in the repository. Please run `bun run lint` and `bun run format` before committing changes to ensure your code adheres to the project's style guidelines. Most editors can be configured to format code automatically on save using these tools.
 
 Thank you for contributing!
