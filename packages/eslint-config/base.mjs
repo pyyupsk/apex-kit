@@ -3,8 +3,9 @@ import perfectionist from "eslint-plugin-perfectionist";
 import turbo from "eslint-plugin-turbo";
 import tseslint from "typescript-eslint";
 import onlywarn from "eslint-plugin-only-warn";
+import { defineConfig } from "eslint/config";
 
-export default tseslint.config(
+export default defineConfig(
   eslint.configs.recommended,
   perfectionist.configs["recommended-natural"],
   tseslint.configs.recommended,

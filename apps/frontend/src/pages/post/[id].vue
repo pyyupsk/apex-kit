@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { trpc } from "@/api/trpc";
-import { formatDate } from "@/utils/format-date";
 import { useQuery } from "@tanstack/vue-query";
 import { useRoute } from "vue-router";
 
-const route = useRoute();
-const postId = route.params.id as string;
+import { trpc } from "@/api/trpc";
+import { formatDate } from "@/utils/format-date";
+
+const route = useRoute("/post/[id]");
+const postId = route.params.id;
 
 const {
   data: post,
@@ -45,7 +46,7 @@ const {
 
       <div class="prose prose-lg max-w-none text-gray-800">
         <p v-if="post.content">{{ post.content }}</p>
-        <p v-else class="italic text-gray-400">No content available.</p>
+        <p v-else class="text-gray-400 italic">No content available.</p>
       </div>
     </div>
   </div>

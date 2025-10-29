@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { useQuery } from "@tanstack/vue-query";
+
 import { trpc } from "@/api/trpc";
 import { formatDate } from "@/utils/format-date";
-import { useQuery } from "@tanstack/vue-query";
 
 const {
   data: posts,

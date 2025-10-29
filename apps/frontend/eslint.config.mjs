@@ -1,10 +1,10 @@
 import base from "@packages/eslint-config/base";
 import prettier from "@packages/eslint-config/prettier";
 import vue from "eslint-plugin-vue";
+import { defineConfig } from "eslint/config";
 import globals from "globals";
-import tseslint from "typescript-eslint";
 
-const eslintConfig = tseslint.config(
+const eslintConfig = defineConfig(
   base,
   {
     extends: [...vue.configs["flat/recommended"]],

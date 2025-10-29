@@ -99,7 +99,6 @@ apex-kit/
 **Backend Setup:**
 
 - **Create a `.env` and `.dev.vars` file with development environment variables:**
-
   - `.env`: Environment variables for `drizzle-kit`.
   - `.dev.vars`: Environment variables for `wrangler`.
 
